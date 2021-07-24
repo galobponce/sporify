@@ -1,0 +1,11 @@
+<div *ngIf="loading">
+  <app-loading></app-loading>
+</div>
+<div *ngIf="!loading" class="animated fadeIn">
+  <h1>New Releases</h1>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <div class="col animated fadeIn" *ngFor="let release of releases">
+      <app-new-release [release]="release"></app-new-release>
+    </div>
+  </div>
+</div>
