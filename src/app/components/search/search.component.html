@@ -3,7 +3,7 @@
     <input
       type="text"
       class="form-control"
-      placeholder="Search for tracks & artists"
+      placeholder="Search for tracks, albums & artists"
       (keyup)="searchByTerm(text.value)"
       #text
     />
@@ -11,7 +11,7 @@
 </div>
 
 <div *ngIf="searched">
-  <h2 class="mt-5 animated fadeIn">Songs</h2>
+  <h2 class="mt-5 animated fadeIn">Tracks</h2>
   <hr />
   <div *ngIf="tracks.length == 0" class="alert alert-warning animated fadeIn">
     No tracks found
@@ -40,9 +40,10 @@
   <div *ngIf="artists.length == 0" class="alert alert-warning animated fadeIn">
     No artists found
   </div>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-    <div class="col animated fadeIn" *ngFor="let artist of artists">
-      <app-artist-item [artist]="artist"></app-artist-item>
-    </div>
+  <div class="list-group animated fadeIn">
+    <app-artist-item
+      *ngFor="let artist of artists"
+      [artist]="artist"
+    ></app-artist-item>
   </div>
 </div>

@@ -1,4 +1,5 @@
 <a
+  (click)="goToAlbum(album.id)"
   class="
     list-group-item
     bg-dark
@@ -7,7 +8,7 @@
     justify-content-between
     align-items-center
     flex-wrap
-    cursor-default
+    cursor-pointer
   "
 >
   <div class="d-flex flex-nowrap align-items-center">
@@ -25,11 +26,6 @@
     </div>
   </div>
   <div class="d-flex flex-wrap">
-    <span
-      class="badge bg-danger m-1 cursor-pointer"
-      (click)="goToAlbum(album.id)"
-      >{{ album.name }}</span
-    >
     <span
       *ngFor="let artist of album.artists"
       class="badge bg-primary m-1 cursor-pointer"
