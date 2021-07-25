@@ -33,17 +33,17 @@ export class SpotifyService extends BaseHttpService {
   }
 
   public getSongsByTerm(term: string): Promise<TracksSearch> {
-    const url = this.apiUrl + `search?q=${term}&type=track&market=AR`;
+    const url = this.apiUrl + `search?q=${term}&type=track&market=AR&limit=8`;
     return this.get<TracksSearch>(url, this.headers);
   }
 
   public getAlbumsByTerm(term: string): Promise<AlbumsSearch> {
-    const url = this.apiUrl + `search?q=${term}&type=album&market=AR`;
+    const url = this.apiUrl + `search?q=${term}&type=album&market=AR&limit=5`;
     return this.get<AlbumsSearch>(url, this.headers);
   }
 
   public getArtistsByTerm(term: string): Promise<ArtistsSearch> {
-    const url = this.apiUrl + `search?q=${term}&type=artist&market=AR`;
+    const url = this.apiUrl + `search?q=${term}&type=artist&market=AR&limit=10`;
     return this.get<ArtistsSearch>(url, this.headers);
   }
 
