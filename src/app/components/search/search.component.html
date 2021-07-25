@@ -1,0 +1,48 @@
+<div class="row animated fadeIn">
+  <div class="col justify-content-center">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search for tracks & artists"
+      (keyup)="searchByTerm(text.value)"
+      #text
+    />
+  </div>
+</div>
+
+<div *ngIf="searched">
+  <h2 class="mt-5 animated fadeIn">Songs</h2>
+  <hr />
+  <div *ngIf="tracks.length == 0" class="alert alert-warning animated fadeIn">
+    No tracks found
+  </div>
+  <div class="list-group animated fadeIn">
+    <app-track-item
+      *ngFor="let track of tracks"
+      [track]="track"
+    ></app-track-item>
+  </div>
+
+  <h2 class="mt-5 animated fadeIn">Albums</h2>
+  <hr />
+  <div *ngIf="albums.length == 0" class="alert alert-warning animated fadeIn">
+    No albums found
+  </div>
+  <div class="list-group animated fadeIn">
+    <app-album-item
+      *ngFor="let album of albums"
+      [album]="album"
+    ></app-album-item>
+  </div>
+
+  <h2 class="mt-5 animated fadeIn">Artists</h2>
+  <hr />
+  <div *ngIf="artists.length == 0" class="alert alert-warning animated fadeIn">
+    No artists found
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <div class="col animated fadeIn" *ngFor="let artist of artists">
+      <app-artist-item [artist]="artist"></app-artist-item>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div (click)="goToArtist(artist.id)" class="card p-2 bg-dark cursor-pointer">
+  <img
+    [src]="artist.images | image"
+    style="height: 300px"
+    class="card-img-top"
+    [alt]="artist.name"
+  />
+  <div class="card-body">
+    <h5 class="card-title text-light">
+      {{ artist.name }}
+    </h5>
+  </div>
+</div>

@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Album } from 'src/app/types/spotify';
+import { Artist } from 'src/app/types/spotify';
 
 @Component({
-  selector: 'app-new-release',
-  templateUrl: './new-release.component.html',
+  selector: 'app-artist-item',
+  templateUrl: './artist-item.component.html',
   styles: [],
 })
-export class NewReleaseComponent {
-  @Input() public release: Album = {} as Album;
+export class ArtistItemComponent {
+  @Input() public artist: Artist = {} as Artist;
 
   constructor(private _router: Router) {}
 

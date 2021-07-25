@@ -1,0 +1,40 @@
+<a
+  class="
+    list-group-item
+    bg-dark
+    text-light
+    d-flex
+    justify-content-between
+    align-items-center
+    flex-wrap
+    cursor-default
+  "
+>
+  <div class="d-flex flex-nowrap align-items-center">
+    <a class="navbar-brand">
+      <img
+        [src]="album.images | image"
+        [alt]="album.name"
+        width="70"
+        height="70"
+        class="d-inline-block align-text-to"
+      />
+    </a>
+    <div>
+      {{ album.name }}
+    </div>
+  </div>
+  <div class="d-flex flex-wrap">
+    <span
+      class="badge bg-danger m-1 cursor-pointer"
+      (click)="goToAlbum(album.id)"
+      >{{ album.name }}</span
+    >
+    <span
+      *ngFor="let artist of album.artists"
+      class="badge bg-primary m-1 cursor-pointer"
+      (click)="goToArtist(artist.id)"
+      >{{ artist.name }}</span
+    >
+  </div></a
+>

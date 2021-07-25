@@ -3,14 +3,18 @@ import { Router } from '@angular/router';
 import { Album } from 'src/app/types/spotify';
 
 @Component({
-  selector: 'app-new-release',
-  templateUrl: './new-release.component.html',
+  selector: 'app-album-item',
+  templateUrl: './album-item.component.html',
   styles: [],
 })
-export class NewReleaseComponent {
-  @Input() public release: Album = {} as Album;
+export class AlbumItemComponent {
+  @Input() public album: Album = {} as Album;
 
   constructor(private _router: Router) {}
+
+  public goToAlbum(id: string) {
+    this._router.navigate(['/album', id]);
+  }
 
   public goToArtist(id: string) {
     this._router.navigate(['/artist-profile', id]);
