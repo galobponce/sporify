@@ -44,6 +44,7 @@ export interface Track {
   disc_number: number;
   duration_ms: number;
   explicit: boolean;
+  preview_url: string;
   uri: string;
   external_urls: External_urls;
 }
