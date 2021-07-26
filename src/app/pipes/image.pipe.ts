@@ -5,7 +5,7 @@ import { Image } from 'src/app/types/spotify';
   name: 'image',
 })
 export class ImagePipe implements PipeTransform {
-  transform(images: Image[]): string {
+  transform(images: Image[] | null | undefined): string {
     if (!images) {
       return 'assets/no-image.png';
     }
