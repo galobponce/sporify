@@ -9,6 +9,7 @@ import {
   ArtistsSearch,
   ReleasesSearch,
   TracksSearch,
+  TopTracksSearch,
 } from 'src/app/types/spotify';
 
 @Injectable({
@@ -30,6 +31,13 @@ export class SpotifyService extends BaseHttpService {
   public getReleases(): Promise<ReleasesSearch> {
     const url = this.apiUrl + 'browse/new-releases';
     return this.get<ReleasesSearch>(url, this.headers);
+  }
+
+  public getTopTracksFromArtistId(
+    id: string | number
+  ): Promise<TopTracksSearch> {
+    const url = this.apiUrl + `artists/${id}/top-tracks?market=AR`;
+    return this.get<TopTracksSearch>(url, this.headers);
   }
 
   public getSongsByTerm(term: string): Promise<TracksSearch> {

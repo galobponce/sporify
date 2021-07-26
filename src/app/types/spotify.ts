@@ -76,6 +76,10 @@ export interface DataTracks {
   total: number;
 }
 
+export interface TopTracksSearch {
+  tracks: Track[];
+}
+
 export interface ArtistsSearch {
   artists: DataArtists;
 }
