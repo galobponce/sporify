@@ -1,3 +1,50 @@
-<p>album works!</p>
-<p>{{ album.id }}</p>
-<p>{{ album.name }}</p>
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="!loading">
+  <div
+    class="
+      row row-cols-1 row-cols-md-2
+      g-4
+      animated
+      fadeIn
+      d-flex
+      justify-content-center justify-content-md-start
+    "
+  >
+    <div class="col col-sm-8 col-md-4">
+      <img
+        [src]="album.images | image"
+        [alt]="album.name"
+        class="img-thumbnail"
+      />
+    </div>
+    <div class="col g-4">
+      <h2>{{ album.name }}</h2>
+      <div class="d-flex flex-wrap">
+        <span
+          *ngFor="let artist of album.artists"
+          class="badge bg-primary m-1 cursor-pointer"
+          (click)="goToArtist(artist.id)"
+          >{{ artist.name }}</span
+        >
+      </div>
+      <div>
+        <p class="text-muted">
+          {{ album.type.charAt(0).toUpperCase().concat(album.type.substr(1)) }}
+          -
+          {{ album.release_date.substr(0, 4) }} - {{ album.total_tracks }}
+          {{ album.total_tracks == 1 ? "track" : "tracks" }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="animated fadeIn mt-4">
+    <div class="list-group animated fadeIn">
+      <app-track-item
+        *ngFor="let track of album.tracks.items"
+        [track]="track"
+        [albumChild]="true"
+      ></app-track-item>
+    </div>
+  </div>
+</div>

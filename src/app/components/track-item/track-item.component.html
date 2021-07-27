@@ -1,13 +1,13 @@
 <div class="row d-flex justify-content-between pb-3 g-2">
   <div class="col-12 col-lg-8">
     <div class="d-flex justify-content-start align-items-center">
-      <a class="navbar-brand">
+      <a *ngIf="!albumChild" class="navbar-brand">
         <img
           [src]="track.album.images | image"
           [alt]="track.album.name"
           width="70"
           height="70"
-          class="d-inline-block align-text-to"
+          class="d-inline-block"
         />
       </a>
       <div>
@@ -16,6 +16,7 @@
     </div>
     <div class="d-flex flex-wrap">
       <span
+        *ngIf="!albumChild"
         class="badge bg-danger m-1 cursor-pointer"
         (click)="goToAlbum(track.album.id)"
         >{{ track.album.name }}</span

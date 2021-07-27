@@ -10,6 +10,8 @@ import { Track } from 'src/app/types/spotify';
 export class TrackItemComponent {
   @Input() public track: Track = {} as Track;
 
+  @Input() public albumChild: boolean = false;
+
   constructor(private _router: Router) {}
 
   public goToAlbum(id: string) {
